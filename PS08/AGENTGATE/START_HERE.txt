@@ -1,0 +1,13 @@
+AGENTGATE COMPLETE PROJECT
+
+This package contains both uploaded project folders:
+1. Phase4_Backend: Phase 4 integrated backend package (WORM archive excluded).
+2. Phase5_White_Theme_Dashboard: Phase 5 React dashboard package with its included backend copy.
+
+Recommended: Open Phase5_White_Theme_Dashboard/AGENTGATE_Phase5_React_Dashboard in VS Code to work on the dashboard project. Keep Phase4_Backend as a separate reference/backup.
+
+To start the Phase 5 dashboard on Windows, open PowerShell in that folder and run:
+.\start-agentgate.ps1
+The script generates local credentials on first run; paste the displayed API key into the dashboard.
+
+The two folders are preserved separately; this package does not automatically merge conflicting files. Check each folder README for setup instructions. Frontend build and live API integration should be tested locally before deployment.

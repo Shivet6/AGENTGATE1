@@ -1,0 +1,19 @@
+AGENTGATE Phase 3 Security Repair - Test Results
+================================================
+Command: python -m unittest discover -v
+Result: 57 tests passed, 0 failures, 0 errors.
+
+Added/expanded Phase 3 tests:
+- Missing/forged credentials -> 401
+- Cross-user resource ownership mismatch -> 403 (with trusted resource_owners map)
+- Rate limit exceeded -> 429
+- Oversized JSON request -> 413
+- Path traversal rejected
+- SQL injection-like and script-injection-like input rejected by schema validation
+- Backend timeout -> 503; circuit breaker remains open for configured reset window
+
+Implementation caveats:
+- Rate limiting and circuit breaker are in-process; use shared infrastructure for multi-worker deployments.
+- BOLA ownership checks require a complete trusted resource_owners mapping passed to create_app.
+- Request size limits should also be configured at reverse proxy/load balancer.
+- This test suite is regression coverage, not proof of production security.
